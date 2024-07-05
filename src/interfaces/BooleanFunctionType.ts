@@ -1,0 +1,1 @@
+export type BooleanFunctionType = (election:boolean) => void

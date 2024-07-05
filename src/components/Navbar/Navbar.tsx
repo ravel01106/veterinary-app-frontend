@@ -1,14 +1,10 @@
-import { Dispatch, SetStateAction } from "react"
+import React from "react"
+import VisbilityContext from "../../context/VisbilityContext"
 
-interface NavBarProp {
-    setVisibleForm: Dispatch<SetStateAction<boolean>>
-}
+const Navbar = () => {
 
-const Navbar = ({ setVisibleForm}: NavBarProp) => {
+    const visibilityContext = React.useContext(VisbilityContext);
 
-    const changeVisibility = () => {
-        setVisibleForm(true)
-    }
     return (
         <nav className="navbar navbar-expand-sm bg-primary">
             <div className="container-fluid px-5">
@@ -16,7 +12,7 @@ const Navbar = ({ setVisibleForm}: NavBarProp) => {
                     <img src={`./logo.png`} alt="#"></img>
                 </a>
                 <div>
-                <button className='btn btn-outline-light' type='button' onClick={changeVisibility}> Iniciar sesión</button>
+                <button className='btn btn-outline-light' type='button' onClick={() => visibilityContext.changeVisibilityLoginForm(true)}> Iniciar sesión</button>
                 </div>
             </div>
         </nav>

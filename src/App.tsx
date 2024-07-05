@@ -3,19 +3,20 @@ import './App.css'
 import Header from './components/Header/Header'
 import LoginForm from './components/LoginForm/LoginForm'
 import Navbar from './components/Navbar/Navbar'
+import VisbilityContext from './context/VisbilityContext'
 
 function App() {
-  const [visibleForm, setVisibleForm] = React.useState(false)
+  const { visibilityLoginForm } = React.useContext(VisbilityContext);
 
 
   return (
-    <div className='App'>
-     <Header />
-     <Navbar setVisibleForm = {setVisibleForm}/>
+      <div className='App'>
+        <Header />
+        <Navbar />
 
-     {visibleForm ? (<LoginForm />): (null)}
-     
-    </div>
+        {visibilityLoginForm ? (<LoginForm />) : (null)}
+
+      </div>
   )
 }
 

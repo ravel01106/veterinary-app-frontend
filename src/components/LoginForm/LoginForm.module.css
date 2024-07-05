@@ -5,3 +5,8 @@
     align-items: center;
     margin-top: 3rem;
 }
+
+.FormContainer{
+    width: 30vw;
+    height: 40vh;
+}

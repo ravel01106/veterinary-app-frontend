@@ -1,61 +1,70 @@
 import React from "react";
 import style from "./LoginForm.module.css";
+import VisbilityContext from "../../context/VisbilityContext";
+import UserDataContext from "../../context/UserDataContext";
 
 
 const LoginForm = () => {
+    const { changeVisibilityLoginForm } = React.useContext(VisbilityContext);
     const initUser = {
         username: '',
         password: ''
     };
 
-    const [user, setUser] = React.useState(initUser);
+    const [currentUser, setCurrentUser] = React.useState(initUser);
+    const {user} = React.useContext(UserDataContext)
 
     const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setUser({
-            ...user, [e.target.name]: e.target.value
+        setCurrentUser({
+            ...currentUser, [e.target.name]: e.target.value
         })
     }
 
     const handleSubmit = (e:React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log("Logueado")
+        if (user.username === currentUser.username && user.password === currentUser.password){
+            console.log("Logueado")
+            setCurrentUser(initUser)
+        }else{
+            console.log("No esta logueado")
+        }
 
-        setUser(initUser)
     }
 
     return (
         <div className={`${style.mainContainer}`}>
-            <div className="card bg-light w-50 p-3">
-                <h3 className="card-title">Login Form</h3>
+            <div className={`card bg-light p-3 ${style.FormContainer}`}>
+                <h3 className="card-title mb-4">Login Form</h3>
                 <div className="card-body text-start">
                     <form onSubmit={handleSubmit}>
-                        <div className="mb-3 mx-3">
+                        <div className="mb-4 mx-3">
                             <label className="form-label" id="username">Username</label>
                             <input 
                                 type="text" 
                                 className="form-control" 
                                 id="username"
                                 name="username"
-                                value={user.username}
+                                value={currentUser.username}
                                 onChange={handleInputChange}
                                 required/>
                         </div>
-                        <div className="mb-3 mx-3">
+                        <div className="mb-4 mx-3">
                             <label className="form-label" id="password">Password</label>
                             <input 
                                 type="password" 
                                 className="form-control" 
                                 id="password" 
                                 name="password"
-                                value={user.password}
+                                value={currentUser.password}
                                 onChange={handleInputChange}
                                 required/>
                         </div>
-                        <div className="mx-3">
+                        <div className="mx-3 d-flex flex-row justify-content-between">
                             <button 
                             type="submit" 
-                            className="btn btn-primary"
+                            className="btn btn-primary px-3"
                             >Submit</button>
+                            <button className="btn btn-danger px-3" type='button' onClick={() => changeVisibilityLoginForm(false)}>Back</button>
                         </div>
                     </form>
                 </div>

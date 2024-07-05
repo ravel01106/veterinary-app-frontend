@@ -5,6 +5,7 @@ import { UserContextProp } from '../interfaces/UserContextProp'
 import UserDataContext from '../context/UserDataContext'
 import { VisibilityContextProp } from '../interfaces/VisibilityContextProp'
 import VisbilityContext from '../context/VisbilityContext'
+import { BooleanFunctionType } from '../interfaces/BooleanFunctionType'
 
 const CustomProvider = ({ children }: CustomProviderProps) => {
 
@@ -22,13 +23,13 @@ const CustomProvider = ({ children }: CustomProviderProps) => {
 
     const [visibilityLoginForm, setVisibilityLoginForm] = React.useState(false);
 
-    const changeVisbilityForm = (election: boolean) => {
+    const changeVisbility:BooleanFunctionType = (election:boolean) => {
         setVisibilityLoginForm(election)
     }
 
     const visibilityData: VisibilityContextProp = {
         visibilityLoginForm,
-        changeVisbilityForm
+        changeVisibilityLoginForm: changeVisbility
     }
 
     const UserData: UserContextProp = {
