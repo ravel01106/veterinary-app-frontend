@@ -2,7 +2,7 @@ import React from 'react'
 import style from './Welcome.module.css'
 import VisbilityContext from '../../context/VisbilityContext'
 
-const Welcome = () => {
+const WelcomeCard = () => {
     const visibility = React.useContext(VisbilityContext);
     return (
         <div className={`${style.mainContainer}`}>
@@ -15,4 +15,4 @@ const Welcome = () => {
     )
 }
 
-export default Welcome
+export default WelcomeCard
