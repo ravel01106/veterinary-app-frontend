@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import LoginForm from './components/LoginForm/LoginForm'
 import Navbar from './components/Navbar/Navbar'
 import VisbilityContext from './context/VisbilityContext'
+import Welcome from './components/Welcome/Welcome'
 
 function App() {
   const { visibilityLoginForm } = React.useContext(VisbilityContext);
@@ -14,7 +15,7 @@ function App() {
         <Header />
         <Navbar />
 
-        {visibilityLoginForm ? (<LoginForm />) : (null)}
+        {visibilityLoginForm ? (<LoginForm />) : (<Welcome />)}
 
       </div>
   )

@@ -33,7 +33,7 @@ const LoginForm = () => {
 
     return (
         <div className={`${style.mainContainer}`}>
-            <div className={`card bg-light p-3 ${style.FormContainer}`}>
+            <div className={`card text-light p-3 ${style.FormContainer}`}>
                 <h3 className="card-title mb-4">Login Form</h3>
                 <div className="card-body text-start">
                     <form onSubmit={handleSubmit}>
@@ -62,9 +62,9 @@ const LoginForm = () => {
                         <div className="mx-3 d-flex flex-row justify-content-between">
                             <button 
                             type="submit" 
-                            className="btn btn-primary px-3"
+                            className="btn btn-outline-light btn-lg px-3"
                             >Submit</button>
-                            <button className="btn btn-danger px-3" type='button' onClick={() => changeVisibilityLoginForm(false)}>Back</button>
+                            <button className="btn btn-danger btn-lg px-3" type='button' onClick={() => changeVisibilityLoginForm(false)}>Back</button>
                         </div>
                     </form>
                 </div>
