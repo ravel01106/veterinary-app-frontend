@@ -18,13 +18,23 @@ const Navbar = () => {
                 <a href="#" className="navbar-brand">
                     <img src={`./iconVeterinary.png`} className={`${style.icon}`} alt="#"></img>
                 </a>
+
                 {userDataContext.isLogged ? (
-                    <div className={`${style.buttonsContainer}`}>
-                        <div>
-                            <p className="text-light pt-3">Bienvenido: {userDataContext.user.username} </p>
+                    <>
+                        <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
+                            <div className='navbar-nav text-white'>
+                                <a className='nav-link text-white active' href="#">Main page</a>
+                                <a className='nav-link text-white-50' href="#">Add date</a>
+                            </div>
                         </div>
-                        <button className='btn btn-outline-light' type='button' onClick={returnWelcomeScreen}>Log out</button>
-                    </div>
+                        <div className={`${style.buttonsContainer}`}>
+                            <div>
+                                <p className="text-light pt-3">Bienvenido: {userDataContext.user.username} </p>
+                            </div>
+                            <button className='btn btn-outline-light' type='button' onClick={returnWelcomeScreen}>Log out</button>
+                        </div>
+                    </>
+
                 ) : (
                     <div>
                         <button className='btn btn-outline-light' type='button' onClick={() => navigate(link)}>Log in</button>
