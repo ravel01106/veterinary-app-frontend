@@ -7,7 +7,7 @@ import WelcomeCard from "../../components/Welcome/Welcome";
 import style from "./WelcomeScreen.module.css"
 
 const WelcomeScreen = () => {
-    const { visibilityLoginForm } = React.useContext(VisbilityContext);
+  const { visibilityLoginForm } = React.useContext(VisbilityContext);
   return (
     <div className={`${style.mainContainer}`}>
     <Header />

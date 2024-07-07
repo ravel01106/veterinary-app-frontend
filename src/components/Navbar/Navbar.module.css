@@ -2,3 +2,13 @@
     width: 50px;
     height: 50px;
 }
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 16rem;
+
+    min-width: 100px;
+}
