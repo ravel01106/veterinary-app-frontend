@@ -1,19 +1,15 @@
 import React from "react"
-import VisbilityContext from "../../context/VisbilityContext"
 import style from './Navbar.module.css'
 import UserDataContext from "../../context/UserDataContext";
 import { useNavigate } from "react-router-dom";
 const Navbar = () => {
 
     const navigate = useNavigate()
-
-    const visibilityContext = React.useContext(VisbilityContext);
+    const link = "/login"
     const userDataContext = React.useContext(UserDataContext);
 
     const returnWelcomeScreen = () => {
         userDataContext.changeIsLogged(false)
-        visibilityContext.changeVisibilityLoginForm(false);
-        navigate("/")
     }
 
     return (
@@ -31,7 +27,7 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div>
-                        <button className='btn btn-outline-light' type='button' onClick={() => visibilityContext.changeVisibilityLoginForm(true)}>Log in</button>
+                        <button className='btn btn-outline-light' type='button' onClick={() => navigate(link)}>Log in</button>
                     </div>
                 )}
 

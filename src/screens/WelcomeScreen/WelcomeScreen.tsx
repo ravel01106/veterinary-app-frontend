@@ -1,13 +1,12 @@
 import React from "react";
-import VisbilityContext from "../../context/VisbilityContext";
-import LoginForm from "../../components/LoginForm/LoginForm";
 import WelcomeCard from "../../components/Welcome/Welcome";
+import UserDataContext from "../../context/UserDataContext";
 
 const WelcomeScreen = () => {
-  const { visibilityLoginForm } = React.useContext(VisbilityContext);
+  const {isLogged } = React.useContext(UserDataContext);
   return (
     <>
-      {visibilityLoginForm ? (<LoginForm />) : (<WelcomeCard />)}
+      {isLogged ? (<div>JEJEJE</div>) : (<WelcomeCard />)}
     </>
   )
 }

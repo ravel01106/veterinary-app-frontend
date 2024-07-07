@@ -1,17 +1,16 @@
 import React from "react";
 import style from "./LoginForm.module.css";
-import VisbilityContext from "../../context/VisbilityContext";
 import UserDataContext from "../../context/UserDataContext";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-    const link = "/date";
-    const navigate = useNavigate();
-    const { changeVisibilityLoginForm } = React.useContext(VisbilityContext);
     const initUser = {
         username: '',
         password: ''
     };
+
+    const navigate = useNavigate()
+    const link = "/"
 
     const [currentUser, setCurrentUser] = React.useState(initUser);
     const {user, changeIsLogged} = React.useContext(UserDataContext)
@@ -27,8 +26,8 @@ const LoginForm = () => {
         if (user.username === currentUser.username && user.password === currentUser.password){
             console.log("Logueado")
             changeIsLogged(true)
+            navigate(link)
             setCurrentUser(initUser)
-            navigate(link);
         }else{
             console.log("No esta logueado")
         }
@@ -68,7 +67,7 @@ const LoginForm = () => {
                             type="submit" 
                             className="btn btn-outline-light btn-lg px-3"
                             >Submit</button>
-                            <button className="btn btn-danger btn-lg px-3" type='button' onClick={() => changeVisibilityLoginForm(false)}>Back</button>
+                            <button className="btn btn-danger btn-lg px-3" type='button' onClick={() => navigate(link)}>Back</button>
                         </div>
                     </form>
                 </div>
