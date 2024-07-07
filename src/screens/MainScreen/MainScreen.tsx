@@ -1,13 +1,20 @@
-import Header from '../../components/Header/Header'
-import Navbar from '../../components/Navbar/Navbar'
-import style from './MainScreen.module.css'
+import React from "react"
+import UserDataContext from "../../context/UserDataContext"
 
 const MainScreen = () => {
+    const userDataContext = React.useContext(UserDataContext)
+
+    React.useEffect(() => {
+
+        if (!userDataContext.isLogged){
+            userDataContext.changeIsLogged(true)
+        }
+        
+    }, [])
+
+
     return (
-        <div className={`${style.mainContainer}`}>
-            <Header />
-            <Navbar />
-        </div>
+        <div>JEJE</div>
     )
 }
 
