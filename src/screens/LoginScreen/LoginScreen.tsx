@@ -1,8 +1,11 @@
 import LoginForm from "../../components/LoginForm/LoginForm"
+import style from "./LoginScreen.module.css"
 
 const LoginScreen = () => {
   return (
-    <LoginForm />
+    <div className={`${style.mainContainer}`}>
+      <LoginForm />
+    </div>
   )
 }
 
