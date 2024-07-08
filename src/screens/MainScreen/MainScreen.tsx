@@ -1,11 +1,11 @@
 import React from "react";
 import WelcomeCard from "../../components/Welcome/Welcome";
 import UserDataContext from "../../context/UserDataContext";
-import style from './WelcomeScreen.module.css'
+import style from './MainScreen.module.css'
 import SearchInput from "../../components/SearchInput/SearchInput";
 
 
-const WelcomeScreen = () => {
+const MainScreen = () => {
   const {isLogged } = React.useContext(UserDataContext);
   return (
     <>
@@ -20,4 +20,4 @@ const WelcomeScreen = () => {
   )
 }
 
-export default WelcomeScreen
+export default MainScreen
