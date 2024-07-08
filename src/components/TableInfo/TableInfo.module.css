@@ -5,3 +5,16 @@
 .field:hover {
   background-color: gray;
 }
+
+
+.tableScroll {
+  max-height: 600px;
+  height: 50vh;
+  overflow-y: 'scroll';
+}
+
+.tableScroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
