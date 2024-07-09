@@ -7,6 +7,8 @@ import dates from "../../data/dates";
 
 const MainScreen = () => {
   const [currentDates, setCurrentDates] = React.useState(dates);
+  const [isLogged, setIsLogged] = React.useState(false);
+
 
   const searchDate = (input:string) => {
     if (input !== ""){
@@ -18,9 +20,17 @@ const MainScreen = () => {
       setCurrentDates(dates)
     }
   }
+
+  React.useEffect(() => {
+    if (localStorage.getItem("conectado")){
+      setIsLogged(true)
+    }else{
+      setIsLogged(false)
+    }
+  })
   return (
     <>
-      {localStorage.getItem("conectado") ? (
+      {isLogged ? (
         <div className={`${style.mainContainer} p-4`}>
           <SearchInput searchDate={searchDate}/>
           <TableInfo dates={currentDates}/>

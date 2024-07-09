@@ -1,13 +1,49 @@
+import React from "react"
 import style from "./AddScreen.module.css"
+import { IDates } from "../../interfaces/IDates"
+import  dates from "../../data/dates";
+import { useNavigate } from "react-router-dom";
 
 const AddDateScreen = () => {
+  const currentDateTime = new Date().toISOString();
+  const initNewDate:IDates = {
+    Id: "",
+    petName: "",
+    ownerName: "",
+    date: currentDateTime.substring(0,10),
+    time: currentDateTime.substring(11,16),
+    symptoms: "aaa",
+  }
+  const [newDate, setNewDate] = React.useState(initNewDate)
+
+  const navigate = useNavigate()
+
+  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>{
+    setNewDate({
+      ...newDate, [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = () => {
+
+    dates.push({
+      Id: (dates.length + 1).toString(),
+      petName: newDate.petName,
+      ownerName: newDate.ownerName,
+      date: newDate.date,
+      time: newDate.time,
+      symptoms: newDate.symptoms
+    });
+    setNewDate(initNewDate)
+    navigate("/")
+  }
 
   return (
     <div className={`${style.mainContainer}`}>
       <div className={`card text-light p-3 ${style.FormContainer}`}>
         <h3 className="card-title mb-2">Add date</h3>
         <div className="card-body text-start">
-          <form className="row">
+          <form className="row" onSubmit={handleSubmit}>
             <div className="col-12 mt-2">
               <label className="form-label">Pet's name</label>
               <input
@@ -15,6 +51,8 @@ const AddDateScreen = () => {
               className="form-control"
               id="petName"
               name="petName"
+              value={newDate.petName}
+              onChange={handleInputChange}
               required/>
             </div>
 
@@ -25,6 +63,8 @@ const AddDateScreen = () => {
                 className="form-control"
                 id="ownerName"
                 name="ownerName"
+                value={newDate.ownerName}
+                onChange={handleInputChange}
                 required/>
             </div>
 
@@ -35,6 +75,8 @@ const AddDateScreen = () => {
                 name='date'
                 className='form-control'
                 id='date'
+                value={newDate.date}
+                onChange={handleInputChange}
                 required />
             </div>
 
@@ -45,6 +87,8 @@ const AddDateScreen = () => {
                 className='form-control'
                 name='time'
                 id='time'
+                value={newDate.time}
+                onChange={handleInputChange}
                 required />
             </div>
             <div className="row-md-6 mt-2">
@@ -52,8 +96,10 @@ const AddDateScreen = () => {
               <textarea
                 className="form-control"
                 rows={3}
-                id="Symptoms"
-                name="Symptoms"
+                id="symptoms"
+                name="symptoms"
+                value={newDate.symptoms}
+                onChange={handleInputChange}
                 required/>
             </div>
             <div className='row-md-6 mt-3'>

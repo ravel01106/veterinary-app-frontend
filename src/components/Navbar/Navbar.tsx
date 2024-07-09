@@ -1,7 +1,7 @@
 import React from "react"
 import style from './Navbar.module.css'
 import UserDataContext from "../../context/UserDataContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const Navbar = () => {
 
     const navigate = useNavigate()
@@ -25,8 +25,8 @@ const Navbar = () => {
                     <>
                         <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
                             <div className='navbar-nav text-white'>
-                                <a className='nav-link text-white active' href="/">Main page</a>
-                                <a className='nav-link text-white-50' href="/addDate">Add date</a>
+                                <Link to={"/"} className="nav-link text-white">Main Page</Link>
+                                <Link to={"/addDate"} className="nav-link text-white">Add Page</Link>
                             </div>
                         </div>
                         <div className={`${style.buttonsContainer}`}>
