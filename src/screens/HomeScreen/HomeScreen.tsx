@@ -21,7 +21,7 @@ const HomeScreen = () => {
   return (
     <div className={`${style.mainContainer} p-4`}>
     <SearchInput searchDate={searchDate}/>
-    <TableInfo dates={currentDates}/>
+    <TableInfo currentDates={currentDates}/>
   </div>
   )
 }
