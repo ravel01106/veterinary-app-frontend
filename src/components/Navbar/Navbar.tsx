@@ -25,7 +25,7 @@ const Navbar = () => {
                     <>
                         <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
                             <div className='navbar-nav text-white'>
-                                <Link to={"/"} className="nav-link text-white">Main Page</Link>
+                                <Link to={"/Home"} className="nav-link text-white">Main Page</Link>
                                 <Link to={"/addDate"} className="nav-link text-white">Add Page</Link>
                             </div>
                         </div>

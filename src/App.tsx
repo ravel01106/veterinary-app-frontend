@@ -6,6 +6,7 @@ import './App.css'
 import LoginScreen from './screens/LoginScreen/LoginScreen'
 import AddDateScreen from "./screens/AddDateScreen/AddDateScreen"
 import CustomProvider from './provider/CustomProvider.tsx';
+import HomeScreen from "./screens/HomeScreen/HomeScreen.tsx"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<MainScreen />} />
           <Route path='/login' element={<LoginScreen />} />
+          <Route path='/Home' element={<HomeScreen />} />
           <Route path='/addDate' element={<AddDateScreen />} />
         </Routes>
         </CustomProvider>

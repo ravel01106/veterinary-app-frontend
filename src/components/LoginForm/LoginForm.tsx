@@ -10,7 +10,6 @@ const LoginForm = () => {
     };
 
     const navigate = useNavigate()
-    const link = "/"
 
     const [currentUser, setCurrentUser] = React.useState(initUser);
     const {user, changeIsLogged} = React.useContext(UserDataContext)
@@ -27,7 +26,7 @@ const LoginForm = () => {
             console.log("Logueado")
             localStorage.setItem("conectado", user.username);
             changeIsLogged(true)
-            navigate(link)
+            navigate("/home")
             setCurrentUser(initUser)
         }else{
             console.log("No esta logueado")
@@ -68,7 +67,7 @@ const LoginForm = () => {
                             type="submit"
                             className="btn btn-outline-light btn-lg px-3"
                             >Submit</button>
-                            <button className="btn btn-danger btn-lg px-3" type='button' onClick={() => navigate(link)}>Back</button>
+                            <button className="btn btn-danger btn-lg px-3" type='button' onClick={() => navigate("/")}>Back</button>
                         </div>
                     </form>
                 </div>
