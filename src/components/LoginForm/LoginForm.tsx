@@ -25,6 +25,7 @@ const LoginForm = () => {
         e.preventDefault()
         if (user.username === currentUser.username && user.password === currentUser.password){
             console.log("Logueado")
+            localStorage.setItem("conectado", user.username);
             changeIsLogged(true)
             navigate(link)
             setCurrentUser(initUser)
@@ -42,9 +43,9 @@ const LoginForm = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="mb-4 mx-3">
                             <label className="form-label" id="username">Username</label>
-                            <input 
-                                type="text" 
-                                className="form-control" 
+                            <input
+                                type="text"
+                                className="form-control"
                                 id="username"
                                 name="username"
                                 value={currentUser.username}
@@ -53,18 +54,18 @@ const LoginForm = () => {
                         </div>
                         <div className="mb-4 mx-3">
                             <label className="form-label" id="password">Password</label>
-                            <input 
-                                type="password" 
-                                className="form-control" 
-                                id="password" 
+                            <input
+                                type="password"
+                                className="form-control"
+                                id="password"
                                 name="password"
                                 value={currentUser.password}
                                 onChange={handleInputChange}
                                 required/>
                         </div>
                         <div className="mx-3 d-flex flex-row justify-content-between">
-                            <button 
-                            type="submit" 
+                            <button
+                            type="submit"
                             className="btn btn-outline-light btn-lg px-3"
                             >Submit</button>
                             <button className="btn btn-danger btn-lg px-3" type='button' onClick={() => navigate(link)}>Back</button>

@@ -9,7 +9,9 @@ const Navbar = () => {
     const userDataContext = React.useContext(UserDataContext);
 
     const returnWelcomeScreen = () => {
+        localStorage.removeItem("conectado")
         userDataContext.changeIsLogged(false)
+        navigate("/")
     }
 
     return (
@@ -19,12 +21,12 @@ const Navbar = () => {
                     <img src={`./iconVeterinary.png`} className={`${style.icon}`} alt="#"></img>
                 </a>
 
-                {userDataContext.isLogged ? (
+                {localStorage.getItem("conectado") ? (
                     <>
                         <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
                             <div className='navbar-nav text-white'>
-                                <a className='nav-link text-white active' href="#">Main page</a>
-                                <a className='nav-link text-white-50' href="#">Add date</a>
+                                <a className='nav-link text-white active' href="/">Main page</a>
+                                <a className='nav-link text-white-50' href="/addDate">Add date</a>
                             </div>
                         </div>
                         <div className={`${style.buttonsContainer}`}>
