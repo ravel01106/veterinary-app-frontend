@@ -35,7 +35,7 @@ const AddDateScreen = () => {
       symptoms: newDate.symptoms
     });
     setNewDate(initNewDate)
-    navigate("/")
+    navigate("/Home")
   }
 
   return (
