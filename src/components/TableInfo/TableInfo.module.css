@@ -8,8 +8,8 @@
 
 
 .tableScroll {
-  max-height: 600px;
-  height: 50vh;
+  max-height: 550px;
+  height: 47.5vh;
   overflow-y: 'scroll';
 }
 

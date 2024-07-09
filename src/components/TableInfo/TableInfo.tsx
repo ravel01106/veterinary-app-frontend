@@ -1,8 +1,8 @@
 import { FaEye } from "react-icons/fa"
-import dates from "../../data/dates"
 import style from "./TableInfo.module.css"
+import { ITableInfoProps } from "../../interfaces/ITableInfoProps"
 
-const TableInfo = () => {
+const TableInfo = ({dates}:ITableInfoProps) => {
   return (
     <div className="container mt-5">
       <div className={`table-responsive ${style.tableScroll}`}>
