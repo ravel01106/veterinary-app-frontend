@@ -1,6 +1,11 @@
-.icon:hover {
+.iconInfo:hover {
   background-color:  blue;
 }
+
+.iconDelete:hover {
+  background-color:  darkred;
+}
+
 
 .field:hover {
   background-color: gray;
