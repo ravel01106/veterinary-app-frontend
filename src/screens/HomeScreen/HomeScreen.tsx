@@ -1,11 +1,11 @@
 import React from 'react'
 import SearchInput from '../../components/SearchInput/SearchInput'
 import TableInfo from '../../components/TableInfo/TableInfo'
-import dates from '../../data/dates';
 import style from "./HomeScreen.module.css"
+import DateService from '../../services/DateService';
 
 const HomeScreen = () => {
-  const [currentDates, setCurrentDates] = React.useState(dates);
+  const [currentDates, setCurrentDates] = React.useState(DateService.findAllDate());
 
   const searchDate = (input:string) => {
     if (input !== ""){
@@ -14,7 +14,7 @@ const HomeScreen = () => {
         return dateSearched
       })
     }else{
-      setCurrentDates(dates)
+      setCurrentDates(DateService.findAllDate())
     }
   }
 

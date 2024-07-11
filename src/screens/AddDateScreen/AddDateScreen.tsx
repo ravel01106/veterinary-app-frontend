@@ -1,9 +1,9 @@
 import React from "react"
 import style from "./AddScreen.module.css"
 import { IDates } from "../../interfaces/IDates"
-import  dates from "../../data/dates";
 import { useNavigate } from "react-router-dom";
 import DateForm from "../../components/DateForm/DateForm";
+import DateService from "../../services/DateService";
 
 const AddDateScreen = () => {
   const currentDateTime = new Date().toISOString();
@@ -20,15 +20,7 @@ const AddDateScreen = () => {
   const navigate = useNavigate()
 
   const handleSubmit = () => {
-
-    dates.push({
-      Id: (dates.length + 1).toString(),
-      petName: newDate.petName,
-      ownerName: newDate.ownerName,
-      date: newDate.date,
-      time: newDate.time,
-      symptoms: newDate.symptoms
-    });
+    DateService.addNewDate(newDate)
     setNewDate(initNewDate)
     navigate("/Home")
   }
