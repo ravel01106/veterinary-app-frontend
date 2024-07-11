@@ -6,6 +6,7 @@ import React from "react"
 import { Modal, Button } from "react-bootstrap"
 import DateService from "../../services/DateService"
 import { IDates } from "../../interfaces/IDates"
+import ModalDelete from "../ModalDelete/ModalDelete"
 
 const TableInfo = ({ currentDates }: ITableInfoProps) => {
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
@@ -77,20 +78,7 @@ const TableInfo = ({ currentDates }: ITableInfoProps) => {
           <h3 className="card-title text-white">No se han registrado citas en la base de datos</h3>
         </div>)}
       </div>
-      <Modal show={showDeleteModal} onHide={handleCloseDeleteModal} aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">WARNING!!!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure to remove this date?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleCloseDeleteModal}>
-            Back
-          </Button>
-          <Button variant="danger" onClick={deleteDate}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ModalDelete handleCloseDeleteModal={handleCloseDeleteModal} showDeleteModal={showDeleteModal} deleteDate={deleteDate}/>
       <Modal show={showInfoModal} onHide={handleCloseInfoModal} aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter"><h3>Information date:</h3></Modal.Title>

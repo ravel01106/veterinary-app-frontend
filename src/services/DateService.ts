@@ -24,6 +24,8 @@ const addNewDate = (newDate:IDates) => {
 
 
 const updateDateById = (date:IDates, id:string) => {
+  const dateToUpdate:IDates = dates.filter( date => date.Id === id)[0]
+  dates[dates.indexOf(dateToUpdate)] = date
 
 }
 
