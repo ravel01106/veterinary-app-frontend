@@ -3,10 +3,10 @@ import style from "./TableInfo.module.css"
 import { ITableInfoProps } from "../../interfaces/ITableInfoProps"
 import dates from "../../data/dates"
 import React from "react"
-import { Modal, Button } from "react-bootstrap"
 import DateService from "../../services/DateService"
 import { IDates } from "../../interfaces/IDates"
 import ModalDelete from "../ModalDelete/ModalDelete"
+import ModalInfo from "../ModalInfo/ModalInfo"
 
 const TableInfo = ({ currentDates }: ITableInfoProps) => {
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
@@ -79,36 +79,7 @@ const TableInfo = ({ currentDates }: ITableInfoProps) => {
         </div>)}
       </div>
       <ModalDelete handleCloseDeleteModal={handleCloseDeleteModal} showDeleteModal={showDeleteModal} deleteDate={deleteDate}/>
-      <Modal show={showInfoModal} onHide={handleCloseInfoModal} aria-labelledby="contained-modal-title-vcenter" centered>
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter"><h3>Information date:</h3></Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <table className="table table-borderless">
-            <tbody>
-              <tr>
-                <td><p className="fs-5"><strong className="pe-2">Name Pet:</strong> {currentDate.petName}</p></td>
-                <td><p className="fs-5"><strong className="pe-2">Owner Pet Name:</strong> {currentDate.ownerName}</p></td>
-              </tr>
-              <tr>
-                <td><p className="fs-5 "><strong className="pe-2">Date:</strong> {currentDate.date}</p></td>
-                <td><p className="fs-5"><strong className="pe-2">Time:</strong> {currentDate.time}</p></td>
-              </tr>
-              <tr>
-                <td colSpan={2}><p className="fs-5 text-break"><strong className="pe-2">Symtoms:</strong> {currentDate.symptoms}</p></td>
-              </tr>
-            </tbody>
-          </table>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseInfoModal}>
-            Back
-          </Button>
-          <Button variant="warning" onClick={goToUpdateScreen}>
-            Update Date
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <ModalInfo showInfoModal={showInfoModal} handleCloseInfoModal={handleCloseInfoModal} currentDate={currentDate} goToUpdateScreen={goToUpdateScreen}/>
     </>
   )
 }
