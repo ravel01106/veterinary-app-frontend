@@ -7,6 +7,7 @@ import DateService from "../../services/DateService"
 import { IDates } from "../../interfaces/IDates"
 import ModalDelete from "../ModalDelete/ModalDelete"
 import ModalInfo from "../ModalInfo/ModalInfo"
+import MessageErrorInTable from "../MessageErrorInTable/MessageErrorInTable"
 
 const TableInfo = ({ currentDates }: ITableInfoProps) => {
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
@@ -68,15 +69,11 @@ const TableInfo = ({ currentDates }: ITableInfoProps) => {
                 </tbody>
               </table>
             ) : (
-              <div className="card bg-danger">
-                <h3 className="card-title text-white">No se han encontrado citas</h3>
-              </div>
+              <MessageErrorInTable title="No se han encontrado citas"/>
             )}
 
           </div>
-        ) : (<div className="card bg-danger">
-          <h3 className="card-title text-white">No se han registrado citas en la base de datos</h3>
-        </div>)}
+        ) : (<MessageErrorInTable title="No se han registrado citas en la base de datos"/>)}
       </div>
       <ModalDelete handleCloseDeleteModal={handleCloseDeleteModal} showDeleteModal={showDeleteModal} deleteDate={deleteDate}/>
       <ModalInfo showInfoModal={showInfoModal} handleCloseInfoModal={handleCloseInfoModal} currentDate={currentDate} goToUpdateScreen={goToUpdateScreen}/>
