@@ -1,0 +1,15 @@
+.mainContainer {
+  width: 100vw;
+  height: 84.9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #DDD;
+
+}
+
+.FormContainer{
+  width: 50vw;
+  height: 57vh;
+  background-color: #be7412;
+}

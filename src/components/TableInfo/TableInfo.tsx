@@ -8,11 +8,13 @@ import { IDates } from "../../interfaces/IDates"
 import ModalDelete from "../ModalDelete/ModalDelete"
 import ModalInfo from "../ModalInfo/ModalInfo"
 import MessageErrorInTable from "../MessageErrorInTable/MessageErrorInTable"
+import { useNavigate } from "react-router-dom"
 
 const TableInfo = ({ currentDates }: ITableInfoProps) => {
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
   const [showInfoModal, setShowInfoModal] = React.useState(false);
-  const [currentDate, setCurrentDate] = React.useState({} as IDates)
+  const [currentDate, setCurrentDate] = React.useState({} as IDates);
+  const navigate = useNavigate();
 
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
   const handleCloseInfoModal = () => setShowInfoModal(false);
@@ -32,8 +34,8 @@ const TableInfo = ({ currentDates }: ITableInfoProps) => {
 
   }
 
-  const goToUpdateScreen = () => {
-    console.log("AAAAAAAAAAAAAAA")
+  const goToUpdateScreen = (id:string) => {
+    navigate(`/updateDate/${id}`)
   }
   return (
     <>

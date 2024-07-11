@@ -1,5 +1,5 @@
 import React from "react"
-import style from "./AddScreen.module.css"
+import style from "./AddDateScreen.module.css"
 import { IDates } from "../../interfaces/IDates"
 import { useNavigate } from "react-router-dom";
 import DateForm from "../../components/DateForm/DateForm";
@@ -20,6 +20,7 @@ const AddDateScreen = () => {
   const navigate = useNavigate()
 
   const handleSubmit = () => {
+    console.log(currentDateTime.substring(0,10))
     DateService.addNewDate(newDate)
     setNewDate(initNewDate)
     navigate("/Home")

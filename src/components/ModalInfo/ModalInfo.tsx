@@ -28,7 +28,7 @@ const ModalInfo = ({currentDate, handleCloseInfoModal, showInfoModal, goToUpdate
           <Button variant="secondary" onClick={handleCloseInfoModal}>
             Back
           </Button>
-          <Button variant="warning" onClick={goToUpdateScreen}>
+          <Button variant="warning" onClick={ () => goToUpdateScreen(currentDate.Id)}>
             Update Date
           </Button>
         </Modal.Footer>
