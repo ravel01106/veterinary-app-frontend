@@ -4,21 +4,20 @@ import style from "./UpdatedDateScreen.module.css"
 import { useNavigate, useParams } from "react-router-dom";
 import { IDates } from "../../interfaces/IDates";
 import DateForm from "../../components/DateForm/DateForm";
+import DateFormatter from "../../utils/DateFormatter";
 
 const UpdateDateScreen = () => {
   const { id } = useParams()
   const getDate = ():IDates => {
     if (id){
       const currentDate =  DateService.findDateById(id)
-      const dateSplit = currentDate.date.split("/")
-      const date = dateSplit[2] + "-" + dateSplit[1] + "-" + dateSplit[0]
 
       console.log(currentDate)
       return {
         Id: currentDate.Id,
         petName: currentDate.petName,
         ownerName: currentDate.ownerName,
-        date: date,
+        date: DateFormatter.format(currentDate.date),
         time: currentDate.time,
         symptoms: currentDate.symptoms
       }
