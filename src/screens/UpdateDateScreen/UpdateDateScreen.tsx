@@ -8,11 +8,20 @@ import DateFormatter from "../../utils/DateFormatter";
 
 const UpdateDateScreen = () => {
   const { id } = useParams()
+
+  const initNewDate:IDates = {
+    Id: "",
+    petName: "",
+    ownerName: "",
+    date: "",
+    time: "",
+    symptoms: "",
+  }
+
   const getDate = ():IDates => {
     if (id){
       const currentDate =  DateService.findDateById(id)
 
-      console.log(currentDate)
       return {
         Id: currentDate.Id,
         petName: currentDate.petName,
@@ -26,14 +35,7 @@ const UpdateDateScreen = () => {
     return initNewDate;
 
   }
-  const initNewDate:IDates = {
-    Id: "",
-    petName: "",
-    ownerName: "",
-    date: "",
-    time: "",
-    symptoms: "",
-  }
+
   const [dateUpdated, setDateUpdated] = React.useState(getDate())
 
   const navigate = useNavigate()
@@ -48,7 +50,7 @@ const UpdateDateScreen = () => {
     <div className={`${style.mainContainer}`}>
       <div className={`card text-light p-3 ${style.FormContainer}`}>
         <h3 className="card-title mb-2">Updated date</h3>
-        <div className="card-body text-start">
+        <div className="card-body text-start ">
           <DateForm
             date={dateUpdated}
             buttonText="Updated Date"

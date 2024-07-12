@@ -9,7 +9,8 @@
 }
 
 .FormContainer{
-  width: 50vw;
-  height: 57vh;
+  min-width: 500px;
+  width: 35vw;
+  height: 63vh;
   background-color: #2762c0;
 }
